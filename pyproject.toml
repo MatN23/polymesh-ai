@@ -1,75 +1,39 @@
+# Create the pyproject.toml file
+cat > pyproject.toml << 'EOF'
 [build-system]
 requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "polymesh_ai"
-version = "0.3.4"  # Increment version for new release
+name = "polymesh-ai"
+version = "0.3.4"
 authors = [
-    {name = "Matias Nielsen", email = "matiasnhmb@gmail.com"},
+    {name = "Matias Nielsen"}
 ]
-description = "Transformer Library for 3D Mesh Processing"
-readme = "README.md"
+description = "A library for mesh processing with transformers"
 requires-python = ">=3.8"
-license = "MIT"  # Fixed: Use simple string instead of table
-classifiers = [
-    "Development Status :: 3 - Alpha",
-    "Intended Audience :: Developers",
-    "Intended Audience :: Science/Research",
-    "Topic :: Scientific/Engineering :: Artificial Intelligence",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-]
-keywords = ["3d", "mesh", "transformer", "deep-learning", "pytorch", "computer-vision"]
 dependencies = [
-    "torch>=2.0.0",
+    "torch>=1.12.0",
     "numpy>=1.21.0",
-    "tqdm>=4.64.0",
+    "tqdm>=4.62.0",
 ]
 
-[project.optional-dependencies]
-full = [
-    "wandb>=0.15.0",
-    "matplotlib>=3.5.0",
-    "scipy>=1.9.0",
-    "scikit-learn>=1.1.0",
-]
-dev = [
-    "pytest>=7.0.0",
-    "black>=22.0.0",
-    "flake8>=5.0.0",
-    "jupyter>=1.0.0",
-    "build>=0.10.0",
-    "twine>=4.0.0",
-]
-docs = [
-    "sphinx>=5.0.0",
-    "sphinx-rtd-theme>=1.0.0",
-]
+[tool.setuptools]
+packages = ["polymesh_ai"]
+EOF
 
-[project.urls]
-Homepage = "https://github.com/MatN23/pymesh3d"
-Repository = "https://github.com/MatN23/pymesh3d"
-Documentation = "https://pymesh3d.readthedocs.io/"
-"Bug Tracker" = "https://github.com/MatN23/pymesh3d/issues"
+# Now verify the file was created
+cat pyproject.toml
 
-[tool.setuptools.packages.find]
-where = ["."]
-include = ["polymesh_ai*"]  # Fixed: Changed from "pymesh3d*" to "polymesh_ai*"
+# Check your directory structure
+ls -la
 
-[tool.black]
-line-length = 88
-target-version = ['py38']
+# You should see:
+# - pyproject.toml (just created)
+# - polymesh_ai/ (your package directory)
 
-[tool.pytest.ini_options]
-testpaths = ["tests"]
-python_files = ["test_*.py"]
-python_functions = ["test_*"]
+# If polymesh_ai/ doesn't exist, check what directories you have:
+ls -d */
 
-# PyPI publishing configuration
-[tool.twine]
-repository = "pypi"
+# Now try installing
+pip install -e .

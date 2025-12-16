@@ -1,0 +1,73 @@
+Metadata-Version: 2.4
+Name: polymesh-ai
+Version: 0.3.4
+Summary: A library for mesh processing with transformers
+Home-page: https://github.com/yourusername/polymesh-ai
+Author: Matias Nielsen
+Author-email: your.email@example.com
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Programming Language :: Python :: 3.13
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: torch>=1.12.0
+Requires-Dist: numpy>=1.21.0
+Requires-Dist: tqdm>=4.62.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Requires-Dist: black>=22.0.0; extra == "dev"
+Requires-Dist: flake8>=4.0.0; extra == "dev"
+Provides-Extra: training
+Requires-Dist: wandb>=0.12.0; extra == "training"
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+
+# Polymesh AI
+
+A library for mesh processing with transformers.
+
+## Features
+- 3D mesh loading and manipulation
+- Mesh tokenization strategies (vertex, face, patch-based)
+- Transformer models for mesh processing
+- Advanced attention mechanisms (geometric, graph, multi-scale)
+- Training pipelines for mesh classification and reconstruction
+
+## Installation
+```bash
+pip install polymesh-ai
+```
+
+## Quick Start
+```python
+import polymesh_ai
+
+# Generate a sample mesh
+mesh = polymesh_ai.generate_sample_mesh('sphere', radius=1.0, subdivisions=2)
+mesh.compute_vertex_normals()
+
+# Tokenize the mesh
+tokenizer = polymesh_ai.create_vertex_tokenizer(include_normals=True)
+tokens = tokenizer.tokenize(mesh)
+
+# Create a transformer model
+model = polymesh_ai.create_mesh_transformer(feature_dim=6, num_classes=10)
+```

@@ -1,0 +1,11 @@
+torch>=1.12.0
+numpy>=1.21.0
+tqdm>=4.62.0
+
+[dev]
+pytest>=7.0.0
+black>=22.0.0
+flake8>=4.0.0
+
+[training]
+wandb>=0.12.0

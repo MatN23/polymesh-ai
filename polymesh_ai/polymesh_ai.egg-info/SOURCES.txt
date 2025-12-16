@@ -1,6 +1,4 @@
-LICENSE
-README.md
-pyproject.toml
+setup.py
 polymesh_ai.egg-info/PKG-INFO
 polymesh_ai.egg-info/SOURCES.txt
 polymesh_ai.egg-info/dependency_links.txt

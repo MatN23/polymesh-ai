@@ -14,9 +14,10 @@ import wandb
 from collections import defaultdict
 import pickle
 
-# Assuming previous modules are imported
-# from mesh_transformers import *
-# from mesh_attention import *
+from . import mesh_transformers
+from . import mesh_attention
+from .mesh_transformers import MeshToken, VertexTokenizer, FaceTokenizer, PatchTokenizer
+from .mesh_attention import AdaptiveMeshTransformer
 
 class MeshTransformerDataset(Dataset):
     """Dataset class for mesh transformer training"""
